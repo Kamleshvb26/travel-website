@@ -1,0 +1,13 @@
+<%- include("header") -%>
+    
+<div class="container">
+  <%  arr.forEach(function(element){%>
+    <div class="box">
+      <h1><%= element.place %></h1>
+      <h1> <%=element.description %></h1>
+      <button> <a href="/posts/<%= element.packageID %>"> view </a></button>
+    </div>
+        <%   }) %>
+</div>
+<%- include("footer") -%>
+

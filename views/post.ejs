@@ -1,0 +1,63 @@
+<%- include("header") -%>
+
+<h2> <%=pid%></h2>
+<div class="viewbox">
+<%  arr.forEach(function(element){%>
+   <% if(element.packageID == pid){ %>
+
+    <div class="inviewbox">
+        <h2> Overall details</h2>
+        <p> packageID : <%=element.packageID %></p>
+        <p> place : <%=element.place %></p>
+        <p> Description : <%=element.description %></p>
+        <p> Stay-Amount : <%=element.stayAmt %></p>
+        <p> food-Amount : <%=element.foodAmt %></p>
+        <p> bus-Amount : <%=element.busAmt %></p>
+        <p> train-Amount : <%=element.trainAmt %></p>
+        <p> plane-Amount : <%=element.planeAmt %></p>
+
+    </div>
+    
+
+
+    <div class="inviewbox">
+        <h2>Customise your plan </h2>
+        <form action="/post" method="POST" >
+            id <input type="number" name="packId" value="<%=element.packageID %>"> <br>
+            travel <input type="radio" name="travel" value="0"> bus
+                   <input type="radio" name="travel" value="1"> train
+                   <input type="radio" name="travel" value="2"> plane <br>
+
+            food   <input type="radio" name="food" value="0"> no
+                   <input type="radio" name="food" value="1">  yes <br>
+            
+            stay   <input type="radio" name="stay" value="0"> no
+                   <input type="radio" name="stay" value="1"> yes <br>
+
+        No-of-Days <select name="noOfDays" >
+                      <option value="1">one</option>
+                      <option value="2">two</option>
+                      <option value="3">three</option>
+                      <option value="4">four</option>
+                      <option value="5">five</option>
+                      <option value="6">six</option>
+                    </select> <br>
+                      
+         date  <input type="date" name="date" > <br>
+                     
+               
+      
+
+        <!-- <button type="submit" > <a href="/posts/<%=element.packageID %>/info"> click</a></button> -->
+        <button type="submit" >  click</button>
+        </form>
+
+        <div class="total">
+              <h1> </h1>
+       </div>
+    
+ <% }  }) %>
+</div>
+</div>
+
+<%- include("footer") -%>
